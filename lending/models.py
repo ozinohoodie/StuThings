@@ -18,7 +18,7 @@ class Book(models.Model):
     def put_back_one(self) -> None:
         ...
 
-class member(models.Model):
+class Member(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField(unique=True)
 
