@@ -38,7 +38,7 @@ class LoanManager(models.Manager):
 
 class Loan(models.Model):
     book = models.ForeignKey(Book, on_delete=models.PROTECT)
-    member = models.ForeignKey(member, on_delete=models.PROTECT, related_name="loans")
+    member = models.ForeignKey(Member, on_delete=models.PROTECT, related_name="loans")
     borrowed_at = models.DateTimeField(default=timezone.now)
     returned_at = models.DateTimeField(null=True, blank=True)
 
