@@ -1,0 +1,14 @@
+<h1>Books</h1>
+<form method="post" action="{% url 'lending:borrow' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Borrow</button>
+</form>
+<hr/>
+<ul>
+  {% for book in books %}
+    <li><strong>{{ book.title }}</strong> — {{ book.author }} : {{ book.copies_available }} {{ book.copies_available|pluralize_copy }}</li>
+  {% empty %}
+    <li>No books yet.</li>
+  {% endfor %}
+</ul>
